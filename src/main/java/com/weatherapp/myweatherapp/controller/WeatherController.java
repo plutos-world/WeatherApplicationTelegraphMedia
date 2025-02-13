@@ -20,7 +20,19 @@ public class WeatherController {
     CityInfo ci = weatherService.forecastByCity(city);
 
     return ResponseEntity.ok(ci);
-  }
-
-  //git commit test 
+  }  
 }
+
+/* Task 
+ * --Daylight Hours Comparison--
+ * 1)Retrive Sunrise and sunset times for both cities
+ * 2)Calculate daylight duration
+ * 3)return the city with the longest daylight 
+ * -- Rain check --
+ * 1)check current weather conditions for both cities 
+ * 2)determine if its raining in either city 
+ * 3)return the city where its currently raining 
+ */
+
+
+
