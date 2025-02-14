@@ -6,84 +6,114 @@ import java.util.List;
 public class CityInfo {
 
   @JsonProperty("address")
-  String address;
+  private String address;
 
   @JsonProperty("description")
-  String description;
+  private String description;
 
   @JsonProperty("currentConditions")
-  CurrentConditions currentConditions;
-
-  //getter for CurrentConditions
-  public CurrentConditions getCurrentConditions() {
-    return currentConditions;
-  } 
+  private CurrentConditions currentConditions;
 
   @JsonProperty("days")
-  List<Days> days;
+  private List<Days> days;
 
-  static class CurrentConditions {
-    @JsonProperty("temp")
-    String currentTemperature;
-
-    @JsonProperty("sunrise")
-    String sunrise;
-
-    @JsonProperty("sunset")
-    String sunset;
-
-    @JsonProperty("feelslike")
-    String feelslike;
-
-    @JsonProperty("humidity")
-    String humidity;
-
-    @JsonProperty("conditions")
-    String conditions;
-     
-  //Gets the current conditions for the city
-    public String getCurrentTemperature() {
-      return currentTemperature;
+  // Getter for currentConditions
+  public CurrentConditions getCurrentConditions() {
+      return currentConditions;
   }
-    //Gets the time of sunrise for the city.
-    public String getSunrise() {
-      return sunrise;
-    }
-    //Gets the time of sunset for the city.
-    public String getSunset() {
-      return sunset;
-    }
-    //Gets the "feels like" temperature,
-    public String getFeelslike() {
-      return feelslike;
-    }
-    //Gets the humidity level in percentage.
-    public String getHumidity() {
-      return humidity;
-    }
-    //Gets the current weather conditions .
-    public String getConditions() {
-      return conditions;
-    }
+
+  // Getter for days
+  public List<Days> getDays() {
+      return days;
   }
-  static class Days {
 
-    @JsonProperty("datetime")
-    String date;
+  public static class CurrentConditions {
+      @JsonProperty("temp")
+      private String currentTemperature;
 
-    @JsonProperty("temp")
-    String currentTemperature;
+      @JsonProperty("sunrise")
+      private String sunrise;
 
-    @JsonProperty("tempmax")
-    String maxTemperature;
+      @JsonProperty("sunset")
+      private String sunset;
 
-    @JsonProperty("tempmin")
-    String minTemperature;
+      @JsonProperty("feelslike")
+      private String feelslike;
 
-    @JsonProperty("conditions")
-    String conditions;
+      @JsonProperty("humidity")
+      private String humidity;
 
-    @JsonProperty("description")
-    String description;
+      @JsonProperty("conditions")
+      private String conditions;
+
+      // Add getters
+      public String getCurrentTemperature() {
+          return currentTemperature;
+      }
+
+      public String getSunrise() {
+          return sunrise;
+      }
+
+      public String getSunset() {
+          return sunset;
+      }
+
+      public String getFeelslike() {
+          return feelslike;
+      }
+
+      public String getHumidity() {
+          return humidity;
+      }
+
+      public String getConditions() {
+          return conditions;
+      }
+  }
+
+  public static class Days {
+      @JsonProperty("datetime")
+      private String date;
+
+      @JsonProperty("temp")
+      private String currentTemperature;
+
+      @JsonProperty("tempmax")
+      private String maxTemperature;
+
+      @JsonProperty("tempmin")
+      private String minTemperature;
+
+      @JsonProperty("conditions")
+      private String conditions;
+
+      @JsonProperty("description")
+      private String description;
+
+      // Add getters
+      public String getDate() {
+          return date;
+      }
+
+      public String getCurrentTemperature() {
+          return currentTemperature;
+      }
+
+      public String getMaxTemperature() {
+          return maxTemperature;
+      }
+
+      public String getMinTemperature() {
+          return minTemperature;
+      }
+
+      public String getConditions() {
+          return conditions;
+      }
+
+      public String getDescription() {
+          return description;
+      }
   }
 }
