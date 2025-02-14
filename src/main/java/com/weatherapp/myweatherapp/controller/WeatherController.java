@@ -23,16 +23,22 @@ public class WeatherController {
     return ResponseEntity.ok(ci);
   }  
 
-  @GetMapping("/compare-daylight")
-   public ResponseEntity<String> compareDayLight(@RequestParam String city1, @RequestParam String city2){
-    try{
-      String result = weatherService.compareDayLight(city1, city2);
-      return ResponseEntity.ok(result);
-    } catch (Exception e) {
-      return ResponseEntity.badRequest().body("Error:"+ e.getMessage());
-
-    }
-   }
+     // Compare daylight hours between two cities
+     @GetMapping("/compare-daylight")
+     public String compareDaylight(@RequestParam String city1, @RequestParam String city2) {
+         CityInfo cityInfo1 = weatherService.forecastByCity(city1);
+         CityInfo cityInfo2 = weatherService.forecastByCity(city2);
+ 
+         if (cityInfo1 == null || cityInfo2 == null || 
+             cityInfo1.getCurrentConditions() == null || cityInfo2.getCurrentConditions() == null) {
+             return "Error: Could not retrieve weather data for one or both cities.";
+         }
+ 
+         long daylight1 = calculateDaylight(cityInfo1); //ToDo Create Calculatedaylight function!
+         long daylight2 = calculateDaylight(cityInfo2); // 
+ 
+         return (daylight1 > daylight2) ? city1 + " has longer daylight hours." : city2 + " has longer daylight hours.";
+     }
    
 }
 
