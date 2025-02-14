@@ -14,6 +14,11 @@ public class CityInfo {
   @JsonProperty("currentConditions")
   CurrentConditions currentConditions;
 
+  //getter for CurrentConditions
+  public CurrentConditions getCurrentConditions() {
+    return currentConditions;
+  } 
+
   @JsonProperty("days")
   List<Days> days;
 
@@ -35,44 +40,32 @@ public class CityInfo {
 
     @JsonProperty("conditions")
     String conditions;
-
-    /**
-    * Gets the time of sunrise for the city.
-    * @return The sunrise time as a String (e.g., "06:30").
-    */
+     
+  //Gets the current conditions for the city
+    public String getCurrentTemperature() {
+      return currentTemperature;
+  }
+    //Gets the time of sunrise for the city.
     public String getSunrise() {
       return sunrise;
     }
-    /**
-    * Gets the time of sunset for the city.
-    * @return The sunset time as a String (e.g., "18:45").
-    */
+    //Gets the time of sunset for the city.
     public String getSunset() {
       return sunset;
     }
-    /**
-    * Gets the "feels like" temperature,
-    * @return The "feels like" temperature as a String.
-    */
+    //Gets the "feels like" temperature,
     public String getFeelslike() {
       return feelslike;
     }
-    /**
-    * Gets the humidity level in percentage.
-    * @return The humidity as a String .
-    */
+    //Gets the humidity level in percentage.
     public String getHumidity() {
       return humidity;
     }
-    /**
-    * Gets the current weather conditions .
-    * @return A brief description of the weather conditions.
-    */
+    //Gets the current weather conditions .
     public String getConditions() {
       return conditions;
     }
   }
-
   static class Days {
 
     @JsonProperty("datetime")
@@ -92,7 +85,5 @@ public class CityInfo {
 
     @JsonProperty("description")
     String description;
-
   }
-
 }
