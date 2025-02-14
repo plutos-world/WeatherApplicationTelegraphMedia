@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class WeatherController {
@@ -21,7 +22,20 @@ public class WeatherController {
 
     return ResponseEntity.ok(ci);
   }  
+
+  @GetMapping("/compare-daylight")
+   public ResponseEntity<String> compareDayLight(@RequestParam String city1, @RequestParam String city2){
+    try{
+      String result = weatherService.compareDayLight(city1, city2);
+      return ResponseEntity.ok(result);
+    } catch (Exception e) {
+      return ResponseEntity.badRequest().body("Error:"+ e.getMessage());
+
+    }
+   }
+   
 }
+
 
 /* Task 
  * --Daylight Hours Comparison--
@@ -32,6 +46,7 @@ public class WeatherController {
  * 1)check current weather conditions for both cities 
  * 2)determine if its raining in either city 
  * 3)return the city where its currently raining 
+ *
  */
 
 
