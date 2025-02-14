@@ -35,6 +35,42 @@ public class CityInfo {
 
     @JsonProperty("conditions")
     String conditions;
+
+    /**
+    * Gets the time of sunrise for the city.
+    * @return The sunrise time as a String (e.g., "06:30").
+    */
+    public String getSunrise() {
+      return sunrise;
+    }
+    /**
+    * Gets the time of sunset for the city.
+    * @return The sunset time as a String (e.g., "18:45").
+    */
+    public String getSunset() {
+      return sunset;
+    }
+    /**
+    * Gets the "feels like" temperature,
+    * @return The "feels like" temperature as a String.
+    */
+    public String getFeelslike() {
+      return feelslike;
+    }
+    /**
+    * Gets the humidity level in percentage.
+    * @return The humidity as a String .
+    */
+    public String getHumidity() {
+      return humidity;
+    }
+    /**
+    * Gets the current weather conditions .
+    * @return A brief description of the weather conditions.
+    */
+    public String getConditions() {
+      return conditions;
+    }
   }
 
   static class Days {
